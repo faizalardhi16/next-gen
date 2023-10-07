@@ -6,7 +6,6 @@ on:
 jobs:
   install:
     name: Installing Package
-    needs: init
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
