@@ -28,9 +28,9 @@ jobs:
     needs: test
     runs-on: ubuntu-latest
     steps:
-      - name: Build
       - name: Checkout Repository
         uses: actions/checkout@v3
+      - name: Build
         env:
           CI: false        
         run: npm run build
