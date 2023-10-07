@@ -12,11 +12,21 @@ jobs:
         uses: actions/checkout@v3
       - name: Install Dependencies
         run: npm install
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: src
+          path: .
   test:
     name: Unit Test
     needs: install
     runs-on: ubuntu-latest
     steps:
+      - name: Download Artifact
+          uses: actions/download-artifact@v3
+          with:
+            name: src
+            path: .
       - name: Running Unit Test
         run: npm run test   
   build:
